@@ -1,0 +1,51 @@
+{% extends 'front/base.html' %} {% load static %} {% block content %}
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto text-center title">
+                        <h2>List Terbaru Artikel</h2>
+                        <h3 class="title-uppercase"><small>Written by Trisha NurHalisha</small></h3>
+                    </div>
+                </div>
+
+                {% for a in artikel %}
+                <div class="article">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto">
+                            <div class="card card-blog card-plain text-center">
+                                <div class="card-image">
+                                    <a href="#pablo">
+                                    <!-- <img class="img img-raised" src="{% static 'front/img/sections/bruno-abatti.jpg' %}"> -->
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-category">
+                                        <span class="badge badge-primary main-tag">{{a.kategory}}</span>
+                                    </div>
+                                    <a href="javascrip: void(0);">
+                                        <h3 class="card-title">{{a.judul}}</h3>
+                                    </a>
+                                    <div class="card-description">
+                                        <p>{{a.body|safe|truncatechars:200}}</p>
+                                    </div>
+                                    <div class="card-description">
+                                        <p style=color:green;>{{a.date}}</p>
+                                    </div>
+                                </div>
+                                <a class="btn btn-danger btn-round btn-sm" href="{% url 'detail_artikel' a.id %}">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr><br /><br />
+                {% endfor %}
+                <hr />
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

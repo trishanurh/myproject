@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    web:
+        build: .
+        container_name: belajar_django_blog
+        command: gunicorn myproject.wsgi:application --bind 0.0.0.0:9001
+        volumes:
+            - .:/app
+        ports:
+            - "9001:9001"
